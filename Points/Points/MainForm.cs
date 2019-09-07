@@ -24,18 +24,12 @@ namespace Points
             InitializeComponent();            
         }
 
-
-        private void PictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void _PictureBoxRefresh()
         {
             Graphics graph = this.CreateGraphics();
             foreach (var myPoint in points)
             {
-                Pen pen = new Pen(myPoint.Color, myPoint.Width);             
+                Pen pen = new Pen(myPoint.Color, myPoint.Width);
                 Pen pen2 = new Pen(Box.BackColor, myPoint.Width);
                 graph.DrawEllipse(pen2, myPoint.x, myPoint.y, myPoint.Width, myPoint.Width);
 
@@ -43,11 +37,21 @@ namespace Points
                 graph.DrawEllipse(pen, myPoint.x, myPoint.y, myPoint.Width, myPoint.Width);
                 myPoint.TimeLife++;
             }
+            label1.Text = "Шаров: " + points.Count;
+        }
+         
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            _PictureBoxRefresh();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {     
             timer1.Enabled = !timer1.Enabled;
+            if (Start.Text == "Старт")
+                Start.Text = "Стоп";
+            else
+                Start.Text = "Старт";
         }
 
         private void AddPoint_Click(object sender, EventArgs e)

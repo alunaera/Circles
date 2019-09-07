@@ -24,9 +24,9 @@ namespace Points
         public Point(int x, int y)
         {
             this.Width = rnd.Next(5, 15);
-            this.Weight = Width * Width / 7;
-            this.VectorX = rnd.Next(-10, 10)-Weight;
-            this.VectorY = rnd.Next(-10, 10)-Weight;
+            this.Weight = Width / 3;
+            this.VectorX = _AddVector();
+            this.VectorY = _AddVector();
             this.x = x;
             this.y = y;
             this.BumpCount = 0;
@@ -46,6 +46,16 @@ namespace Points
                 case 7: { this.Color = Color.Violet; break; }
                 default: break;
             }
+        }
+
+        private int _AddVector()
+        {
+            int speed = rnd.Next(-10, 10);
+            if (speed < 0)
+                speed += this.Weight;
+            else
+                speed -= this.Weight;
+            return speed;
         }
 
         public void Way(int width, int height, int locX, int locY)
