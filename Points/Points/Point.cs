@@ -25,15 +25,15 @@ namespace Points
         {
             this.Width = rnd.Next(5, 15);
             this.Weight = Width / 3;
-            this.VectorX = _AddVector();
-            this.VectorY = _AddVector();
+            this.VectorX = AddVector();
+            this.VectorY = AddVector();
             this.x = x;
             this.y = y;
             this.BumpCount = 0;
             this.TimeLife = 0;
-            _AddColor();
+            AddColor();
         }
-        private void _AddColor()
+        private void AddColor()
         {
             switch (rnd.Next(1, 7))
             {
@@ -48,7 +48,7 @@ namespace Points
             }
         }
 
-        private int _AddVector()
+        private int AddVector()
         {
             int speed = rnd.Next(-10, 10);
             if (speed < 0)
@@ -58,7 +58,7 @@ namespace Points
             return speed;
         }
 
-        public void Way(int width, int height, int locX, int locY)
+        public void UpdateWay(int width, int height, int locX, int locY)
         {
             if ((this.x + this.VectorX) >= width)
             {

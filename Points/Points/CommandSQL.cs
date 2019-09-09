@@ -9,6 +9,23 @@ namespace Points
 {
     class CommandSQL
     {
+        string ConnectionWay;
+
+        public CommandSQL()
+        {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            this.ConnectionWay = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="
+                + baseDirectory.Substring(0, baseDirectory.Length - 10)
+                + "Database2.mdf;Integrated Security=True";
+
+        }
+
+        public async void CreateConnection()
+        {
+            SqlConnection SqlConnection = new SqlConnection(this.ConnectionWay);
+            await SqlConnection.OpenAsync();
+        }
+
         public async void InsertPoint(SqlConnection sqlConnection, string color, int width, int weight)
         {
             SqlCommand commandInsert = new SqlCommand("INSERT INTO [Points] (Color, Width, Weight)" +

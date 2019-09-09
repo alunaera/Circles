@@ -1,0 +1,12 @@
+C:\Users\zheka\Desktop\Points\Points\bin\Release\Database2.mdf
+C:\Users\zheka\Desktop\Points\Points\bin\Release\Database2_log.ldf
+C:\Users\zheka\Desktop\Points\Points\bin\Release\Points.exe.config
+C:\Users\zheka\Desktop\Points\Points\bin\Release\Points.exe
+C:\Users\zheka\Desktop\Points\Points\bin\Release\Points.pdb
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.csprojAssemblyReference.cache
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.MainForm.resources
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.Properties.Resources.resources
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.csproj.GenerateResource.cache
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.csproj.CoreCompileInputs.cache
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.exe
+C:\Users\zheka\Desktop\Points\Points\obj\Release\Points.pdb

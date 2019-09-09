@@ -34,7 +34,6 @@
             this.Start = new System.Windows.Forms.Button();
             this.addPoint = new System.Windows.Forms.Button();
             this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьСтатистикуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.показатьТаблицуДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -87,23 +86,16 @@
             this.addPoint.Text = "Добавить шар";
             this.toolTip1.SetToolTip(this.addPoint, "Добавляет новый шар на поле");
             this.addPoint.UseVisualStyleBackColor = true;
+            this.addPoint.Visible = false;
             this.addPoint.Click += new System.EventHandler(this.AddPoint_Click);
             // 
             // инструментыToolStripMenuItem
             // 
             this.инструментыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьСтатистикуToolStripMenuItem,
             this.показатьТаблицуДанныхToolStripMenuItem});
             this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
             this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.инструментыToolStripMenuItem.Text = "Инструменты";
-            // 
-            // добавитьСтатистикуToolStripMenuItem
-            // 
-            this.добавитьСтатистикуToolStripMenuItem.Name = "добавитьСтатистикуToolStripMenuItem";
-            this.добавитьСтатистикуToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
-            this.добавитьСтатистикуToolStripMenuItem.Text = "Добавить статистику";
-            this.добавитьСтатистикуToolStripMenuItem.Click += new System.EventHandler(this.ДобавитьСтатистикуToolStripMenuItem_Click);
             // 
             // показатьТаблицуДанныхToolStripMenuItem
             // 
@@ -121,15 +113,19 @@
             this.menuStrip1.Size = new System.Drawing.Size(707, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(605, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Шаров:";
+            this.toolTip1.SetToolTip(this.label1, "Количество шаров на поле");
+            this.label1.Visible = false;
             // 
             // MainForm
             // 
@@ -163,7 +159,6 @@
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button addPoint;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьСтатистикуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem показатьТаблицуДанныхToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolTip toolTip1;
