@@ -33,13 +33,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Start = new System.Windows.Forms.Button();
             this.addPoint = new System.Windows.Forms.Button();
-            this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.показатьТаблицуДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Box)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Box
@@ -57,7 +53,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 15;
+            this.timer1.Interval = 13;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Start
@@ -72,7 +68,7 @@
             this.Start.Text = "Старт";
             this.toolTip1.SetToolTip(this.Start, "Включает или выключает таймер");
             this.Start.UseVisualStyleBackColor = true;
-            this.Start.Click += new System.EventHandler(this.Button1_Click);
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // addPoint
             // 
@@ -88,32 +84,6 @@
             this.addPoint.UseVisualStyleBackColor = true;
             this.addPoint.Visible = false;
             this.addPoint.Click += new System.EventHandler(this.AddPoint_Click);
-            // 
-            // инструментыToolStripMenuItem
-            // 
-            this.инструментыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.показатьТаблицуДанныхToolStripMenuItem});
-            this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
-            this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
-            this.инструментыToolStripMenuItem.Text = "Инструменты";
-            // 
-            // показатьТаблицуДанныхToolStripMenuItem
-            // 
-            this.показатьТаблицуДанныхToolStripMenuItem.Name = "показатьТаблицуДанныхToolStripMenuItem";
-            this.показатьТаблицуДанныхToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
-            this.показатьТаблицуДанныхToolStripMenuItem.Text = "Показать таблицу данных";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.инструментыToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(707, 28);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
             // 
             // label1
             // 
@@ -133,11 +103,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 353);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.addPoint);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.Box);
-            this.MainMenuStrip = this.menuStrip1;
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -145,8 +114,6 @@
             this.Text = "Points";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Box)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +125,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button addPoint;
-        private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem показатьТаблицуДанныхToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
     }
