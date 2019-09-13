@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace Circles
@@ -11,100 +8,82 @@ namespace Circles
     {
         public int X { get; private set; }
         public int Y { get; private set; }
-        public int Width { get; private set; }
-        public Color Color { get; private set; }
+        public int Radius { get; private set; }
         public SolidBrush Brush { get; private set; }
 
-        private int Radius;
-        private double Weight;
-        private double VectorX;
-        private double VectorY;
-
-        public Circle(int lowBorderX, int lowBorderY, int highBorderX, int highBorderY)
+        private double vectorX;
+        private double vectorY;
+        private static readonly Dictionary<Color, double> colorWeightModifiers = new Dictionary<Color, double>
         {
-            this.Radius = MainForm.rnd.Next(5, 10);
-            this.Width = this.Radius * 2;
-            SetRandomColor();
-            this.Weight = Math.PI * Math.Pow(Radius, 2) * ColorWeightModifiers(this.Color);
+            [Color.Red] = 1.15,
+            [Color.Orange] = 0.95,
+            [Color.Yellow] = 1.2,
+            [Color.LightBlue] = 0.8,
+            [Color.Blue] = 1.35,
+            [Color.Green] = 1,
+            [Color.Violet] = 1.4
+        };
+        public Circle(Rectangle rectangle, Random random)
+        {
+            this.Radius = random.Next(5, 10);
+            this.Brush = new SolidBrush(this.GetRandomColor(random));
+            double weight = Math.PI * Math.Pow(Radius, 2) * colorWeightModifiers[this.Brush.Color];
 
-            this.VectorX = MainForm.rnd.Next(500, 600) / this.Weight;
-            this.VectorY = MainForm.rnd.Next(500, 600) / this.Weight;
-            this.X = MainForm.rnd.Next(lowBorderX, highBorderX);
-            this.Y = MainForm.rnd.Next(lowBorderY, highBorderY);
-
-            this.Brush = new SolidBrush(this.Color);
+            this.vectorX = random.Next(500, 600) / weight;
+            this.vectorY = random.Next(500, 600) / weight;
+            this.X = random.Next(rectangle.Left, rectangle.Right);
+            this.Y = random.Next(rectangle.Top, rectangle.Bottom);
         }
-        private void SetRandomColor()
+        private Color GetRandomColor(Random random)
         {
-            switch (MainForm.rnd.Next(1, 8))
+            switch (random.Next(1, 8))
             {
                 case 1:
-                    this.Color = Color.Red;
-                    break;
+                    return Color.Red;
                 case 2:
-                    this.Color = Color.Orange;
-                    break;
+                    return Color.Orange;
                 case 3:
-                    this.Color = Color.Yellow;
-                    break;
+                    return Color.Yellow;
                 case 4:
-                    this.Color = Color.LightBlue;
-                    break;
+                    return Color.LightBlue;
                 case 5:
-                    this.Color = Color.Blue;
-                    break;
+                    return Color.Blue;
                 case 6:
-                    this.Color = Color.Green;
-                    break;
+                    return Color.Green;
                 case 7:
-                    this.Color = Color.Violet;
-                    break;
+                    return Color.Violet;
                 default:
-                    break;
+                    throw new ArgumentOutOfRangeException();
             }
         }
-        private double ColorWeightModifiers(Color color)
-        {
-            Dictionary<Color, double> dictionary = new Dictionary<Color, double>();
-            dictionary[Color.Red] = 1.15;
-            dictionary[Color.Orange] = 0.95;
-            dictionary[Color.Yellow] = 1.2;
-            dictionary[Color.LightBlue] = 0.8;
-            dictionary[Color.Blue] = 1.35;
-            dictionary[Color.Green] = 1;
-            dictionary[Color.Violet] = 1.4;
-
-            return dictionary[color];
-        }
-
         public void Update(Rectangle box)
         {
-            this.X += (int)this.VectorX;
-            this.Y += (int)this.VectorY;
-
-            if ((this.X + this.VectorX) >= box.Right)
+            if (this.X + this.vectorX + 2 * this.Radius > box.Right)
             {
-                this.X = box.Right;
-                this.VectorX = -this.VectorX;
+                this.X = box.Right - 2 * this.Radius;
+                this.vectorX = -this.vectorX;
             }
 
-            if ((this.Y + this.VectorY) >= box.Bottom)
+            if (this.Y + this.vectorY + 2 * this.Radius > box.Bottom)
             {
-                this.Y = box.Bottom;
-                this.VectorY = -this.VectorY;
+                this.Y = box.Bottom - 2 * this.Radius;
+                this.vectorY = -this.vectorY;
             }
 
-            if ((this.X + this.VectorX) < box.Left)
+            if (this.X + this.vectorX < box.Left)
             {
                 this.X = box.Left;
-                this.VectorX = -this.VectorX;
+                this.vectorX = -this.vectorX;
             }
 
-            if ((this.Y + this.VectorY) < box.Top)
+            if (this.Y + this.vectorY < box.Top)
             {
                 this.Y = box.Top;
-                this.VectorY = -this.VectorY;
+                this.vectorY = -this.vectorY;
             }
+
+            this.X += (int)this.vectorX;
+            this.Y += (int)this.vectorY;
         }
     }
 }

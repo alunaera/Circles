@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -15,54 +9,54 @@ namespace Circles
 
     public partial class MainForm : Form
     {
-        List<Circle> listOfCircles = new List<Circle>();
-        public static Random rnd = new Random();
+        List<Circle> circles = new List<Circle>();
+        private Random random = new Random();
+        
         public MainForm()
         {
             InitializeComponent();
-            this.Paint += OnPaint;
         }
-
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var myCircle in listOfCircles)
+            foreach (Circle circle in circles)
             {
-                e.Graphics.FillEllipse(myCircle.Brush, myCircle.X, myCircle.Y, myCircle.Width, myCircle.Width);
+                e.Graphics.FillEllipse(circle.Brush, circle.X, circle.Y, circle.Radius * 2, circle.Radius * 2);
             }
-        }
-         
+        }         
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            foreach (var myPoint in listOfCircles)
+            foreach (var circle in circles)
             {
-                myPoint.Update(paintBox.DisplayRectangle);
+                circle.Update(paintBox.DisplayRectangle);
             }
 
-            circleCountLabel.Text = "Шаров: " + listOfCircles.Count;
+            circleCountLabel.Text = "Шаров: " + circles.Count;
             Refresh();
         }
-
-        private void StartButton_Click(object sender, EventArgs e)
+        private void startButton_Click(object sender, EventArgs e)
         {     
             timer1.Enabled = !timer1.Enabled;
             if (timer1.Enabled)
             {
-                StartButton.Text = "Стоп";
+                startButton.Text = "Стоп";
                 addPointButton.Visible = true;
                 circleCountLabel.Visible = true;
             }
             else
             {
-                StartButton.Text = "Старт";
+                startButton.Text = "Старт";
                 addPointButton.Visible = false;
                 circleCountLabel.Visible = false;
             }
         }
-
         private void AddPointButton_Click(object sender, EventArgs e)
         {
-                Circle circle = new Circle(paintBox.Location.X, paintBox.Location.Y, paintBox.Width, paintBox.Height);
-                listOfCircles.Add(circle);
+                Circle circle = new Circle(paintBox.DisplayRectangle, random);
+                circles.Add(circle);
+        }
+        private void PaintBox_Paint(object sender, PaintEventArgs e)
+        {
+            this.paintBox.Paint += OnPaint;
         }
     }
 }

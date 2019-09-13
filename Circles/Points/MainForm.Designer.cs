@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.paintBox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.StartButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.addPointButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.circleCountLabel = new System.Windows.Forms.Label();
@@ -49,26 +49,26 @@
             this.paintBox.Size = new System.Drawing.Size(567, 311);
             this.paintBox.TabIndex = 0;
             this.paintBox.TabStop = false;
-            this.paintBox.Visible = false;
+            this.paintBox.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintBox_Paint);
             // 
             // timer1
             // 
             this.timer1.Interval = 13;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // StartButton
+            // startButton
             // 
-            this.StartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(598, 316);
-            this.StartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(97, 26);
-            this.StartButton.TabIndex = 1;
-            this.StartButton.Text = "Старт";
-            this.toolTip1.SetToolTip(this.StartButton, "Включает или выключает таймер");
-            this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.Location = new System.Drawing.Point(598, 316);
+            this.startButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(97, 26);
+            this.startButton.TabIndex = 1;
+            this.startButton.Text = "Старт";
+            this.toolTip1.SetToolTip(this.startButton, "Включает или выключает таймер");
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // addPointButton
             // 
@@ -104,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(707, 353);
             this.Controls.Add(this.circleCountLabel);
             this.Controls.Add(this.addPointButton);
-            this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.paintBox);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -122,7 +122,7 @@
 
         private System.Windows.Forms.PictureBox paintBox;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button StartButton;
+        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button addPointButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label circleCountLabel;
