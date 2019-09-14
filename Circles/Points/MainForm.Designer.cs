@@ -49,7 +49,6 @@
             this.paintBox.Size = new System.Drawing.Size(567, 311);
             this.paintBox.TabIndex = 0;
             this.paintBox.TabStop = false;
-            this.paintBox.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintBox_Paint);
             // 
             // timer1
             // 

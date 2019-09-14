@@ -13,6 +13,7 @@ namespace Circles
 
         private double vectorX;
         private double vectorY;
+
         private static readonly Dictionary<Color, double> colorWeightModifiers = new Dictionary<Color, double>
         {
             [Color.Red] = 1.15,
@@ -23,6 +24,7 @@ namespace Circles
             [Color.Green] = 1,
             [Color.Violet] = 1.4
         };
+
         public Circle(Rectangle rectangle, Random random)
         {
             this.Radius = random.Next(5, 10);
@@ -34,6 +36,7 @@ namespace Circles
             this.X = random.Next(rectangle.Left, rectangle.Right);
             this.Y = random.Next(rectangle.Top, rectangle.Bottom);
         }
+
         private Color GetRandomColor(Random random)
         {
             switch (random.Next(1, 8))
@@ -56,6 +59,7 @@ namespace Circles
                     throw new ArgumentOutOfRangeException();
             }
         }
+
         public void Update(Rectangle box)
         {
             if (this.X + this.vectorX + 2 * this.Radius > box.Right)
