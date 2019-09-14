@@ -1,0 +1,10 @@
+C:\Users\zheka\Desktop\Circles\Points\bin\Debug\Points.exe.config
+C:\Users\zheka\Desktop\Circles\Points\bin\Debug\Points.exe
+C:\Users\zheka\Desktop\Circles\Points\bin\Debug\Points.pdb
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Circles.csprojAssemblyReference.cache
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Circles.MainForm.resources
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Points.Properties.Resources.resources
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Circles.csproj.GenerateResource.cache
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Circles.csproj.CoreCompileInputs.cache
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Points.exe
+C:\Users\zheka\Desktop\Circles\Points\obj\Debug\Points.pdb
